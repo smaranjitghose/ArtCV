@@ -1,4 +1,15 @@
-<h1 align = "center"> ART CV</h1>
+<h1 align = "center"> ART CV🎨</h1>
+Do you have an hidden artist 🤩in you and never got the opportunity to let it free?
+<p align = "center"><img src = "https://media.giphy.com/media/3o7qDHGyWcfBPRy5lS/giphy.gif" width = 40%></p>
+
+Love playing around with you pictures👩‍🔬?
+<p align = "center"><img src = "https://media.giphy.com/media/3o6Zt9pQsQAJvMejAc/giphy.gif" width = 40%></p>
+
+What if you didn't to become a pro editor or require a paid professional tool for that and still have some great stuff done!
+<p align = "center"><img src = "https://media.giphy.com/media/2yz9fpAgdBVVl96kNU/giphy.gif" width = 40%></p>
+
+Perhaps, Python🐍 can help you out to apply those mesmerizing filters with some basics of image processing!
+<p align = "center"><img src = "https://media.giphy.com/media/1i44EI7mlbkA/giphy.gif" width = 30%></p>
 
 
 <h2 align = "center">Demo</h2>
