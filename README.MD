@@ -20,6 +20,7 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 |         Water Coloing        |<img src ="assets/kolkata.jpg">|<img src = "assets/water_coloring.jpg">|
 |Pencil Sketch(Black and White)|<img src ="assets/kolkata.jpg">|<img src = "assets/b&w_sketch.jpg">    |
 |    Pencil Sketch(Colored)    |<img src ="assets/kolkata.jpg">|<img src = "assets/color_sketch.jpg">  |
+|          Low Poly            |<img src ="assets/kolkata.jpg">|<img src = "assets/low_poly.jpg">  |
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
