@@ -1,0 +1,6 @@
+opencv-contrib
+scipy
+argpase
+pillow
+scipy
+scikit-learn
