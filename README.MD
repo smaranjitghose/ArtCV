@@ -1,15 +1,15 @@
-<h1 align = "center> ART CV</h1>
+<h1 align = "center"> ART CV</h1>
 
 
-<h2 align ='center'>Demo</h2>
+<h2 align = "center">Demo</h2>
 Wanna See How it works?
 
-|Work Done|Original Image^| Output Image|
-|---------|-----------------|----------------------------------|
-|Oil Painting|<img src ="assets/kolkata.jpg">|<img src = "assets/oil_painting.jpg">|
-|Water Coloing|<img src ="assets/kolkata.jpg">|<img src = "assets/water_coloring.jpg">|
+|            Work Done         |           Original Image**    |           Output Image               |
+|:----------------------------:|:-----------------------------:|:------------------------------------:|
+|         Oil Painting         |<img src ="assets/kolkata.jpg">|<img src = "assets/oil_painting.jpg">|
+|         Water Coloing        |<img src ="assets/kolkata.jpg">|<img src = "assets/water_coloring.jpg">|
 
-^ Obtained from [Unsplash](hhttps://unsplash.com/photos/Ab18eGc1hhE)
+** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
 <h2 align ='center'>Usage</h2>
 Convinced..huh? 😉 and want this spell for yourself?
