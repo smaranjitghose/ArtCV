@@ -2,12 +2,13 @@
 
 
 <h2 align = "center">Demo</h2>
-Wanna See How it works?
 
-|            Work Done         |           Original Image**    |           Output Image               |
-|:----------------------------:|:-----------------------------:|:------------------------------------:|
-|         Oil Painting         |<img src ="assets/kolkata.jpg">|<img src = "assets/oil_painting.jpg">|
+|            Work Done         |           Original Image**    |           Output Image                |
+|:----------------------------:|:-----------------------------:|:-------------------------------------:|
+|         Oil Painting         |<img src ="assets/kolkata.jpg">|<img src = "assets/oil_painting.jpg">  |
 |         Water Coloing        |<img src ="assets/kolkata.jpg">|<img src = "assets/water_coloring.jpg">|
+|Pencil Sketch(Black and White)|<img src ="assets/kolkata.jpg">|<img src = "assets/b&w_sketch.jpg">|
+|    Pencil Sketch(Colored)    |<img src ="assets/kolkata.jpg">|<img src = "assets/color_sketch.jpg">|
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
