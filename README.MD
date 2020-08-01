@@ -7,14 +7,14 @@
 |:----------------------------:|:-----------------------------:|:-------------------------------------:|
 |         Oil Painting         |<img src ="assets/kolkata.jpg">|<img src = "assets/oil_painting.jpg">  |
 |         Water Coloing        |<img src ="assets/kolkata.jpg">|<img src = "assets/water_coloring.jpg">|
-|Pencil Sketch(Black and White)|<img src ="assets/kolkata.jpg">|<img src = "assets/b&w_sketch.jpg">|
-|    Pencil Sketch(Colored)    |<img src ="assets/kolkata.jpg">|<img src = "assets/color_sketch.jpg">|
+|Pencil Sketch(Black and White)|<img src ="assets/kolkata.jpg">|<img src = "assets/b&w_sketch.jpg">    |
+|    Pencil Sketch(Colored)    |<img src ="assets/kolkata.jpg">|<img src = "assets/color_sketch.jpg">  |
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
 <h2 align ='center'>Usage</h2>
 Convinced..huh? 😉 and want this spell for yourself?
-<p align = 'center'><img src = "https://media.giphy.com/media/3Xw6TZ8xgjqojOwlvr/giphy.gif" width = 70%></p>
+<p align = 'center'><img src = "https://media.giphy.com/media/3Xw6TZ8xgjqojOwlvr/giphy.gif" width = 50%></p>
 
 Here you go:
 
@@ -26,7 +26,7 @@ Here you go:
 - Now make sure you have all the dependencies🧱 
   ```pip install -r requirements.txt```
 - Now, the climax you have been waiting for!😎. Run any of scripts using Terminal
-  ```python name_of_code.py -i <path to your image>```
+  ```python name_of_effect.py -i <path to your image>```
 - Abracadabra ⚡
 
 **I assume you have python installed on your system and set to path.**
