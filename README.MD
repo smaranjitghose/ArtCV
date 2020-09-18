@@ -22,7 +22,8 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 |    Pencil Sketch(Colored)    |<img src ="assets/kolkata.jpg">|<img src = "assets/color_sketch.jpg">  |
 |          Low Poly            |<img src ="assets/kolkata.jpg">|<img src = "assets/low_poly.jpg">      |
 |         Sepia Effect         |<img src ="assets/kolkata.jpg">|<img src = "assets/sepia_effect.jpg">  |
-|          Pointilism          |<img src ="assets/kolkata.jpg">|<img src = "assets/pointilism.jpg">  |
+|          Pointilism          |<img src ="assets/kolkata.jpg">|<img src = "assets/pointilism.jpg">    |
+|          Stippling           |<img src ="assets/kolkata.jpg">|<img src = "assets/Stippled.png">    |
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
