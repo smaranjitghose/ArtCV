@@ -27,7 +27,7 @@ args = vars(ap.parse_args())
 
 
 img = Image.open(args['image'])
-img = img.convert('LA')
+img = img.convert('LA') # Convert the image into Greyscale('L') with alpha transparency('A') to determine how a pixel is rendered when blended with another.
 
 width, height = img.size
 # here we are converting the image to the greyscale form('L') with an alpha ('A') transparency
