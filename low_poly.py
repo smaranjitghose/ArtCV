@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFilter
 from scipy.spatial import Delaunay
 import random
 import argparse
-
+from tqdm import tqdm
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="path to input image")
@@ -38,7 +38,7 @@ triangulation = Delaunay(vertices)
 draw = ImageDraw.Draw(img)
 pix = img.load()
 
-for i, j, k in triangulation.simplices:
+for i, j, k in tqdm(triangulation.simplices):
 	a = tuple(vertices[i])
 	b = tuple(vertices[j])
 	c = tuple(vertices[k])

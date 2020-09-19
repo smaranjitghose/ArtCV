@@ -4,10 +4,11 @@ import PIL
 import random
 from PIL import Image,ImageColor
 import math
+from tqdm import tqdm
 
 def stippler(imgNew,width,height):
     # here performing the operation where we are randomly selecting the pixel and adding the effect.
-    for x in range(width):
+    for x in tqdm(range(width)):
         for y in range(height):
             # here we extract the pixel value of the image.
             point = img.getpixel( (x,y) )[0]

@@ -1,7 +1,7 @@
 # Import the dependencies
 import argparse
 from PIL import Image, ImageDraw
-
+from tqdm import tqdm
 def get_pixel(image, i, j):
     width, height = image.size
     if i > width or j > height: # If dimensions are in bounds
@@ -33,7 +33,7 @@ def convert_sepia(image):
     new = create_image(width, height)
     pixels = new.load()
     # Convert each pixel to sepia
-    for i in range(0, width, 1):
+    for i in tqdm(range(0, width, 1)):
         for j in range(0, height, 1):
             p = get_pixel(image, i, j)
             pixels[i, j] = get_sepia_pixel(p[0], p[1], p[2], 255)
