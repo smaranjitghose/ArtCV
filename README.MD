@@ -16,7 +16,7 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 
 <h2 align = "center">Demo</h2>
 
-|            Work Done         |           Original Image      |           Output Image                |
+|            Work Done         |           Original Image**    |           Output Image                |
 |:----------------------------:|:-----------------------------:|:-------------------------------------:|
 |         Oil Painting         |<img src ="assets/kolkata.jpg">|<img src = "assets/oil_painting.jpg">  |
 |         Water Coloring        |<img src ="assets/kolkata.jpg">|<img src = "assets/water_coloring.jpg">|
