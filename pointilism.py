@@ -2,7 +2,7 @@
 # Import the dependencies
 import argparse
 from PIL import Image, ImageDraw
-
+from tqdm import tqdm
 
 def get_pixel(image, i, j):
     width, height = image.size
@@ -70,7 +70,7 @@ def convert_pointilize(image):
     # The ImageDraw module provide simple 2D graphics for Image objects
     draw = ImageDraw.Draw(new)
     # Draw circles
-    for i in range(0, width, radius+3):
+    for i in tqdm(range(0, width, radius+3)):
         for j in range(0, height, radius+3):
             # Get the color average
             color = color_average(image, i-radius, j -
