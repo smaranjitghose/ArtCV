@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import os, random, argparse
 from PIL import Image
 import numpy as np
@@ -23,7 +22,6 @@ def getImages(images_directory):
         except:
             pass
     return (images)
-
 
 def getAverageRGB(image):
     im = np.array(image)
@@ -84,8 +82,6 @@ def createPhotomosaic(target_image, input_images, grid_size,
         avg = getAverageRGB(img)
         match_index = getBestMatchIndex(avg, avgs)
         output_images.append(input_images[match_index])
-        # if count > 0 and batch_size > 10 and count % batch_size is 0:
-        #     print('processed %d of %d...' % (count, len(target_images)))
         count += 1
         # remove selected image from input if flag set
         if not reuse_images:
@@ -94,11 +90,10 @@ def createPhotomosaic(target_image, input_images, grid_size,
     mosaic_image = createImageGrid(output_images, grid_size)
     return (mosaic_image)
 
-target_image = Image.open(args.target)
 
+target_image = Image.open(args.target)
 # input images
 input_images = getImages(args.images)
-
 # shuffle list - to get a more varied output?
 random.shuffle(input_images)
 # size of grid
@@ -121,4 +116,4 @@ if resize_input:
 mosaic_image = createPhotomosaic(target_image, input_images, grid_size, reuse_images)
 
 # write out mosaic
-mosaic_image.save('mosaic.jpg', 'JPEG')
+mosaic_image.save('assets/mosaic.jpg', 'JPEG')
