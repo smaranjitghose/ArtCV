@@ -22,12 +22,13 @@ def getImages(images_directory):
         except:
             pass
     return (images)
-
+# computing the average value for the image
 def getAverageRGB(image):
     im = np.array(image)
     w, h, d = im.shape
     return (tuple(np.average(im.reshape(w * h, d), axis=0)))
 
+# splitting the image into tiles
 def splitImage(image, size):
     W, H = image.size[0], image.size[1]
     m, n = size
@@ -37,7 +38,7 @@ def splitImage(image, size):
         for i in range(n):
             imgs.append(image.crop((i * w, j * h, (i + 1) * w, (j + 1) * h)))
     return (imgs)
-
+# selecting the best match from the mosaic images based on average values of the original image.
 def getBestMatchIndex(input_avg, avgs):
     avg = input_avg
     index = 0
@@ -52,7 +53,7 @@ def getBestMatchIndex(input_avg, avgs):
             min_index = index
         index += 1
     return (min_index)
-
+# creating the image grid for tiles to fit in
 def createImageGrid(images, dims):
     m, n = dims
     width = max([img.size[0] for img in images])
@@ -64,6 +65,7 @@ def createImageGrid(images, dims):
         grid_img.paste(images[index], (col * width, row * height))
     return (grid_img)
 
+# creating the mosaic
 def createPhotomosaic(target_image, input_images, grid_size,
                       reuse_images=True):
     target_images = splitImage(target_image, grid_size)
