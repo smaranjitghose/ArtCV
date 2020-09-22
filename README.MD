@@ -23,7 +23,9 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 |          Low Poly            |<img src ="assets/kolkata.jpg">|<img src = "assets/low_poly.jpg">      |
 |         Sepia Effect         |<img src ="assets/kolkata.jpg">|<img src = "assets/sepia_effect.jpg">  |
 |          Pointilism          |<img src ="assets/kolkata.jpg">|<img src = "assets/pointilism.jpg">    |
-|          Stippling           |<img src ="assets/kolkata.jpg">|<img src = "assets/Stippled.png">    |
+|          Stippling           |<img src ="assets/kolkata.jpg">|<img src = "assets/Stippled.png">      |
+|          Mosaic Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/mosaic.jpg">        |
+|          TSP Art             |<img src ="assets/kolkata.jpg">|<img src = "assets/tsp_art.jpg">       |
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
