@@ -25,8 +25,19 @@ black_indices = np.argwhere(bw_image_array == 0)
 # but provides more granularity to the portrait  
 chosen_black_indices = black_indices[np.random.choice(black_indices.shape[0],size=8000)]  
 
+#  Now we have to solve the TSP, so we first have to define the distance between every pixel.
+#  In this case, we’re going to define distance between two pixels as the Euclidean distance between their x,y coordinates in the image.
+#  With that definition in mind, we can calculate the distances between all size(8000) pixels:
+#  The result is a giant 8,000 x 8,000 matrix with the Euclidean distances between every pixel.
 distances = pdist(chosen_black_indices)  
 distance_matrix = squareform(distances)
+
+# Now we provide the Matrix to a TSP sover package which returns the optimized path matrix.
+# The library implements a simple "greedy" algorithm:
+# Initially, each vertex belongs to its own path fragment. Each path fragment has length 1.
+# Find 2 nearest disconnected path fragments and connect them.
+# Repeat, until there are at least 2 path fragments.
+# This algorightm has polynomial complexity.
 
 optimized_path = solve_tsp(distance_matrix)    
 optimized_path_points = [chosen_black_indices[x] for x in optimized_path]    
