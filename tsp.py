@@ -1,4 +1,3 @@
-# pip install tsp_solver
 # kindly note the code takes considerable amount of time to run depending upon the "size" parameter.
 import os  
 import cv2  
@@ -6,7 +5,9 @@ from PIL import Image
 import cv2
 from scipy.spatial.distance import pdist, squareform  
 from tsp_solver.greedy_numpy import solve_tsp
-import os, random, argparse
+import random, argparse
+import numpy as np  
+import matplotlib.pyplot as plt  
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="path to input image")
@@ -17,9 +18,6 @@ img=cv2.imread(image_path)
 img=cv2.resize(img, (580, 740),interpolation = cv2.INTER_AREA) 
 grayImage = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 (thresh, blackAndWhiteImage) = cv2.threshold(grayImage, 100, 255, cv2.THRESH_BINARY)  
-
-import numpy as np  
-import matplotlib.pyplot as plt  
   
 bw_image_array = np.array(blackAndWhiteImage, dtype=np.int)  
 black_indices = np.argwhere(bw_image_array == 0)  
