@@ -31,6 +31,8 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
+** Mosaic Images Obtained from [Google Images](https://www.google.com/search?q=colorful+images+jpg&rlz=1C1SQJL_enIN878IN878&sxsrf=ALeKk01p138QfFdbDWis8bPmUTSx02oCSg:1601008796205&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjiwtHEvoPsAhW59XMBHYqrAL8Q_AUoAXoECAwQAw)
+
 <h2 align ='center'>Usage</h2>
 Convinced..huh? 😉 and want this spell for yourself?
 <p align = 'center'><img src = "https://media.giphy.com/media/3Xw6TZ8xgjqojOwlvr/giphy.gif" width = 50%></p>
