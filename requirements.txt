@@ -1,4 +1,4 @@
-opencv-contrib
+opencv-python
 scipy
 argpase
 pillow
