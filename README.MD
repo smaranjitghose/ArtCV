@@ -19,15 +19,19 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 |            Work Done         |           Original Image**    |           Output Image                |
 |:----------------------------:|:-----------------------------:|:-------------------------------------:|
 |         Oil Painting         |<img src ="assets/kolkata.jpg">|<img src = "assets/oil_painting.jpg">  |
-|         Water Coloring        |<img src ="assets/kolkata.jpg">|<img src = "assets/water_coloring.jpg">|
+|         Water Coloring       |<img src ="assets/kolkata.jpg">|<img src = "assets/water_coloring.jpg">|
 |Pencil Sketch(Black and White)|<img src ="assets/kolkata.jpg">|<img src = "assets/b&w_sketch.jpg">    |
 |    Pencil Sketch(Colored)    |<img src ="assets/kolkata.jpg">|<img src = "assets/color_sketch.jpg">  |
 |          Low Poly            |<img src ="assets/kolkata.jpg">|<img src = "assets/low_poly.jpg">      |
 |         Sepia Effect         |<img src ="assets/kolkata.jpg">|<img src = "assets/sepia_effect.jpg">  |
 |          Pointillism         |<img src ="assets/kolkata.jpg">|<img src = "assets/pointilism.jpg">    |
-|          Stippling           |<img src ="assets/kolkata.jpg">|<img src = "assets/Stippled.png">    |
+|          Stippling           |<img src ="assets/kolkata.jpg">|<img src = "assets/Stippled.png">      |
+|          Mosaic Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/mosaic.jpg">        |
+|          TSP Art             |<img src ="assets/kolkata.jpg">|<img src = "assets/tsp_art.jpg">       |
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
+
+** Mosaic Images Obtained from [Google Images](https://www.google.com/search?q=colorful+images+jpg&rlz=1C1SQJL_enIN878IN878&sxsrf=ALeKk01p138QfFdbDWis8bPmUTSx02oCSg:1601008796205&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjiwtHEvoPsAhW59XMBHYqrAL8Q_AUoAXoECAwQAw)
 
 <h2 align ='center'>Usage</h2>
 Convinced..huh? 😉 and want this spell for yourself?
