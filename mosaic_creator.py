@@ -1,7 +1,8 @@
 import os, random, argparse
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 import numpy as np
 from tqdm import tqdm
+import sys
 
 parser = argparse.ArgumentParser(description='Creates a photomosaic from input images')
 parser.add_argument('--target', dest='target', required=True, help="Image to create mosaic from")
@@ -11,17 +12,39 @@ args = parser.parse_args()
 def getImages(images_directory):
     files = os.listdir(images_directory)
     images = []
-    for file in files:
-        filePath = os.path.abspath(os.path.join(images_directory, file))
-        try:
-            fp = open(filePath, "rb")
-            im = Image.open(fp)
-            images.append(im)
-            im.load()
-            fp.close()
-        except:
-            pass
-    return (images)
+    if files:
+        for file in files:
+            filePath = os.path.abspath(os.path.join(images_directory, file))
+            try:
+                fp = open(filePath, "rb")
+                im = Image.open(fp)
+                images.append(im)
+                im.load()
+                fp.close()
+            except FileNotFoundError:
+                print("Can not find the specified image file. Please, make sure the passed file exists.")
+                sys.exit()
+            except ValueError:
+                print("Invalid parameters passed to PIL.Image.open() method.")
+                sys.exit()
+            except UnidentifiedImageError:
+                #If cant open the file, ignore it and continue
+                print("WARNING: Can not identify and open", file, "Ignoring this file...")
+                continue
+            except IsADirectoryError:
+                print("Argument passed to --images is a directory without any files. Image files path expected.")
+                sys.exit()
+        
+        #When there is no image files in the directory, but it has some other files (pdf, txt, etc), 
+        #files list will be empty
+        if images:
+            return (images)
+        else:
+            print("There is no valid image file in the directory passed as argument to --images.")
+            sys.exit()
+    else:
+        print("Directory path passed to --target is empty.")
+        sys.exit()
 # computing the average value for the image
 def getAverageRGB(image):
     im = np.array(image)
@@ -77,11 +100,22 @@ def createPhotomosaic(target_image, input_images, grid_size,
     for img in input_images:
         try:
             avgs.append(getAverageRGB(img))
-        except ValueError:
+        except ZeroDivisionError:
+            print("Warning: Division by zero detected. Ignoring", img, "file.")
+            continue
+        except TypeError:
+            print("Warning: The length of 1D weights is not the same as the shape of a along axis. Ignoring", img, "file.")
             continue
 
     for img in tqdm(target_images):
-        avg = getAverageRGB(img)
+        try:
+            avg = getAverageRGB(img)
+        except ZeroDivisionError:
+            print("WARNING: Division by zero detected. Ignoring", img, "file.")
+            continue
+        except TypeError:
+            print("WARNING: The length of 1D weights is not the same as the shape of a along axis. Ignoring", img, "file.")
+            continue
         match_index = getBestMatchIndex(avg, avgs)
         output_images.append(input_images[match_index])
         count += 1
@@ -92,10 +126,27 @@ def createPhotomosaic(target_image, input_images, grid_size,
     mosaic_image = createImageGrid(output_images, grid_size)
     return (mosaic_image)
 
+try:
+    target_image = Image.open(args.target)
+except FileNotFoundError:
+    print("Can not find the specified --target file. Please, make sure the passed file exists.")
+    sys.exit()
+except ValueError:
+	print("Invalid parameters passed to PIL.Image.open() method.")
+	sys.exit()
+except UnidentifiedImageError:
+	print("Can not identify and open the image file specified. Please, make sure the file passed is a valid image.")
+	sys.exit()
+except IsADirectoryError:
+    print("The argument passed as --target is a directory without any files. Image file path expected.")
+    sys.exit()
 
-target_image = Image.open(args.target)
 # input images
-input_images = getImages(args.images)
+try:
+    input_images = getImages(args.images)
+except NotADirectoryError:
+    print("Invalid path passed. The argument --images expect a directory path.")
+    sys.exit()
 # shuffle list - to get a more varied output?
 random.shuffle(input_images)
 # size of grid
