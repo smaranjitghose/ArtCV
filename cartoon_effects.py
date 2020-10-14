@@ -57,9 +57,9 @@ print("Wait, Work is in Progess.")
 
 res_img1,res_img2 = cartoonize(img)
 res_img3 = comic(img)
-cv2.imwrite("rajop/cartoon1.jpg", res_img1)
-cv2.imwrite("rajop/black_and_wihte_cartoon.jpg", res_img2)
-cv2.imwrite("rajop/comic_cartoon_effect.jpg", res_img3)
+cv2.imwrite("assets/cartoon1.jpg", res_img1)
+cv2.imwrite("assets/black_and_wihte_cartoon.jpg", res_img2)
+cv2.imwrite("assets/comic_cartoon_effect.jpg", res_img3)
 
 
 print("Your results are ready!")
