@@ -147,8 +147,8 @@ if __name__ == '__main__':
     print('time: {0}s'.format(t))
     
 
-    cv2.imwrite("rajop/anime_effect.jpg", output) # save the image
-    cv2.imwrite("rajop/anime_Blue_effect.jpg", output2) 
-    cv2.imwrite("rajop/anime_PredatorView_effect.jpg", output3) 
-    cv2.imwrite("rajop/anime_vintage_effect.jpg", output4)
+    cv2.imwrite("assets/anime_effect.jpg", output) # save the image
+    cv2.imwrite("assets/anime_Blue_effect.jpg", output2) 
+    cv2.imwrite("assets/anime_PredatorView_effect.jpg", output3) 
+    cv2.imwrite("assets/anime_vintage_effect.jpg", output4)
     print("Your results are ready!")
