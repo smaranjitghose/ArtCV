@@ -1,8 +1,8 @@
-import os, random, argparse
+import os, random, argparse, sys, glob
 from PIL import Image, UnidentifiedImageError
 import numpy as np
 from tqdm import tqdm
-import sys
+
 
 parser = argparse.ArgumentParser(description='Creates a photomosaic from input images')
 parser.add_argument('--target', dest='target', required=True, help="Image to create mosaic from")
@@ -10,41 +10,33 @@ parser.add_argument('--images', dest='images', required=True, help="Diectory of 
 args = parser.parse_args()
 
 def getImages(images_directory):
-    files = os.listdir(images_directory)
-    images = []
-    if files:
-        for file in files:
-            filePath = os.path.abspath(os.path.join(images_directory, file))
-            try:
-                fp = open(filePath, "rb")
-                im = Image.open(fp)
-                images.append(im)
-                im.load()
-                fp.close()
-            except FileNotFoundError:
-                print("Can not find the specified image file. Please, make sure the passed file exists.")
-                sys.exit()
-            except ValueError:
-                print("Invalid parameters passed to PIL.Image.open() method.")
-                sys.exit()
-            except UnidentifiedImageError:
-                #If cant open the file, ignore it and continue
-                print("WARNING: Can not identify and open", file, "Ignoring this file...")
-                continue
-            except IsADirectoryError:
-                print("Argument passed to --images is a directory without any files. Image files path expected.")
-                sys.exit()
-        
-        #When there is no image files in the directory, but it has some other files (pdf, txt, etc), 
-        #files list will be empty
-        if images:
-            return (images)
-        else:
-            print("There is no valid image file in the directory passed as argument to --images.")
-            sys.exit()
-    else:
-        print("Directory path passed to --target is empty.")
+    #catching all png, jpeg and jpg files in the directory
+    image_list = (glob.glob(images_directory + "/*.png") + 
+              glob.glob(images_directory + "/*.jpg") +
+              glob.glob(images_directory + "/*.jpeg"))
+    
+    if not image_list:
+        print("There is no valid image file in the directory passed as argument to --images.")
         sys.exit()
+
+    images = []
+    for img in image_list:
+        try:
+            fp = open(img, "rb")
+            im = Image.open(fp)
+            images.append(im)
+            im.load()
+            fp.close()
+        except ValueError:
+            print("Invalid parameters passed to PIL.Image.open() method.")
+            sys.exit()
+        except UnidentifiedImageError:
+            #If cant open the file, ignore it and continue
+            print("WARNING: Can not identify and open one file. Ignoring it...")
+            continue
+        
+    return (images)
+
 # computing the average value for the image
 def getAverageRGB(image):
     im = np.array(image)
@@ -76,7 +68,7 @@ def getBestMatchIndex(input_avg, avgs):
             min_index = index
         index += 1
     return (min_index)
-# creating the image grid for tiles to fit in
+# creating the image grid for tilehttps://twitter.com/notificationss to fit in
 def createImageGrid(images, dims):
     m, n = dims
     width = max([img.size[0] for img in images])
@@ -100,21 +92,13 @@ def createPhotomosaic(target_image, input_images, grid_size,
     for img in input_images:
         try:
             avgs.append(getAverageRGB(img))
-        except ZeroDivisionError:
-            print("Warning: Division by zero detected. Ignoring", img, "file.")
-            continue
-        except TypeError:
-            print("Warning: The length of 1D weights is not the same as the shape of a along axis. Ignoring", img, "file.")
+        except:
             continue
 
     for img in tqdm(target_images):
         try:
             avg = getAverageRGB(img)
-        except ZeroDivisionError:
-            print("WARNING: Division by zero detected. Ignoring", img, "file.")
-            continue
-        except TypeError:
-            print("WARNING: The length of 1D weights is not the same as the shape of a along axis. Ignoring", img, "file.")
+        except:
             continue
         match_index = getBestMatchIndex(avg, avgs)
         output_images.append(input_images[match_index])
@@ -142,11 +126,8 @@ except IsADirectoryError:
     sys.exit()
 
 # input images
-try:
-    input_images = getImages(args.images)
-except NotADirectoryError:
-    print("Invalid path passed. The argument --images expect a directory path.")
-    sys.exit()
+input_images = getImages(args.images)
+
 # shuffle list - to get a more varied output?
 random.shuffle(input_images)
 # size of grid

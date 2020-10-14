@@ -49,14 +49,7 @@ vertices.append((0, cols - 1))
 vertices.append((rows - 1, 0))
 vertices.append((rows - 1, cols - 1))
 
-try:
-	triangulation = Delaunay(vertices)
-except QhullError:
-	print("A Qhull error has occurred. Please, consider checking the parameter passed to the Delaunay method.")
-	sys.exit()
-except ValueError:
-	print("Incompatible array given as input to the Delanuay method.")
-	sys.exit()
+triangulation = Delaunay(vertices)
 
 draw = ImageDraw.Draw(img)
 pix = img.load()
