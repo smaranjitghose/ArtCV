@@ -2,6 +2,7 @@ import os, random, argparse, sys, glob
 from PIL import Image, UnidentifiedImageError
 import numpy as np
 from tqdm import tqdm
+import sys
 
 
 parser = argparse.ArgumentParser(description='Creates a photomosaic from input images')
