@@ -28,7 +28,8 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 |          Stippling           |<img src ="assets/kolkata.jpg">|<img src = "assets/Stippled.png">      |
 |          Mosaic Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/mosaic.jpg">        |
 |          TSP Art             |<img src ="assets/kolkata.jpg">|<img src = "assets/tsp_art.jpg">       |
-|          Glitch Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/glitched_kolkata.jpg">       |
+|          Glitch Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/glitched_kolkata.jpg">|
+|      Canny Edge detection    |<img src ="assets/kolkata.jpg">|<img src = "assets/canny_filter.jpg">|
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
