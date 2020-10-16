@@ -69,7 +69,7 @@ def getBestMatchIndex(input_avg, avgs):
             min_index = index
         index += 1
     return (min_index)
-# creating the image grid for tilehttps://twitter.com/notificationss to fit in
+# creating the image grid for tiles to fit in
 def createImageGrid(images, dims):
     m, n = dims
     width = max([img.size[0] for img in images])
