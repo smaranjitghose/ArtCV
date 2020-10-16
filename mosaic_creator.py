@@ -1,7 +1,9 @@
-import os, random, argparse
-from PIL import Image
+import os, random, argparse, sys, glob
+from PIL import Image, UnidentifiedImageError
 import numpy as np
 from tqdm import tqdm
+import sys
+
 
 parser = argparse.ArgumentParser(description='Creates a photomosaic from input images')
 parser.add_argument('--target', dest='target', required=True, help="Image to create mosaic from")
@@ -9,19 +11,33 @@ parser.add_argument('--images', dest='images', required=True, help="Diectory of 
 args = parser.parse_args()
 
 def getImages(images_directory):
-    files = os.listdir(images_directory)
+    #catching all png, jpeg and jpg files in the directory
+    image_list = (glob.glob(images_directory + "/*.png") + 
+              glob.glob(images_directory + "/*.jpg") +
+              glob.glob(images_directory + "/*.jpeg"))
+    
+    if not image_list:
+        print("There is no valid image file in the directory passed as argument to --images.")
+        sys.exit()
+
     images = []
-    for file in files:
-        filePath = os.path.abspath(os.path.join(images_directory, file))
+    for img in image_list:
         try:
-            fp = open(filePath, "rb")
+            fp = open(img, "rb")
             im = Image.open(fp)
             images.append(im)
             im.load()
             fp.close()
-        except:
-            pass
+        except ValueError:
+            print("Invalid parameters passed to PIL.Image.open() method.")
+            sys.exit()
+        except UnidentifiedImageError:
+            #If cant open the file, ignore it and continue
+            print("WARNING: Can not identify and open one file. Ignoring it...")
+            continue
+        
     return (images)
+
 # computing the average value for the image
 def getAverageRGB(image):
     im = np.array(image)
@@ -77,11 +93,14 @@ def createPhotomosaic(target_image, input_images, grid_size,
     for img in input_images:
         try:
             avgs.append(getAverageRGB(img))
-        except ValueError:
+        except:
             continue
 
     for img in tqdm(target_images):
-        avg = getAverageRGB(img)
+        try:
+            avg = getAverageRGB(img)
+        except:
+            continue
         match_index = getBestMatchIndex(avg, avgs)
         output_images.append(input_images[match_index])
         count += 1
@@ -92,10 +111,24 @@ def createPhotomosaic(target_image, input_images, grid_size,
     mosaic_image = createImageGrid(output_images, grid_size)
     return (mosaic_image)
 
+try:
+    target_image = Image.open(args.target)
+except FileNotFoundError:
+    print("Can not find the specified --target file. Please, make sure the passed file exists.")
+    sys.exit()
+except ValueError:
+	print("Invalid parameters passed to PIL.Image.open() method.")
+	sys.exit()
+except UnidentifiedImageError:
+	print("Can not identify and open the image file specified. Please, make sure the file passed is a valid image.")
+	sys.exit()
+except IsADirectoryError:
+    print("The argument passed as --target is a directory without any files. Image file path expected.")
+    sys.exit()
 
-target_image = Image.open(args.target)
 # input images
 input_images = getImages(args.images)
+
 # shuffle list - to get a more varied output?
 random.shuffle(input_images)
 # size of grid
