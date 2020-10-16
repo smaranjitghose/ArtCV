@@ -1,8 +1,9 @@
 
 # Import the dependencies
 import argparse
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, UnidentifiedImageError
 from tqdm import tqdm
+import sys
 
 def get_pixel(image, i, j):
     width, height = image.size
@@ -93,7 +94,21 @@ ap.add_argument("-i", "--image", required=True, help="path to input image")
 args = vars(ap.parse_args())
 
 # reading the image
-img = Image.open((args["image"]))
+try:
+    img = Image.open(args['image'])
+except FileNotFoundError:
+	print("Can not find the specified image file. Please, make sure the passed file exists.")
+	sys.exit()
+except ValueError:
+	print("Invalid parameters passed to PIL.Image.open() method.")
+	sys.exit()
+except UnidentifiedImageError:
+	print("Can not identify and open the image file specified. Please, make sure the file passed is a valid image.")
+	sys.exit()
+except IsADirectoryError:
+    print("Argument passed is a directory. Image file path expected.")
+    sys.exit()
+
 # Apply Pointilism
 sepia_img = convert_pointilize(img)
 # Save the  image

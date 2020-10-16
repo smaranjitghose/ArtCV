@@ -1,6 +1,7 @@
 # Import the dependencies
 import cv2
 import argparse
+import sys
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -9,6 +10,13 @@ args = vars(ap.parse_args())
 
 # reading the image
 img = cv2.imread((args["image"]))
+
+# Make sure img is not empty
+if img is None:
+    print("Can't read the image file."+
+    "\nPlease make sure you are passing a valid path and it points to an image.")
+    sys.exit()
+
 oil_painting_img = cv2.xphoto.oilPainting(img,7,1)
 
 #create Window to display images
