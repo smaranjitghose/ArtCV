@@ -4,6 +4,8 @@ import cv2
 from math import sqrt, atan
 from math import atan, degrees
 import argparse
+from tqdm import tqdm
+pbar = tqdm(total=100)
 
 #Constants
 kernel_blur = np.array([0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11]).reshape(3,3)
@@ -74,28 +76,35 @@ def sobel_filter(convoluted_X, convoluted_Y):
 
 if __name__ == "__main__":
     # construct the argument parse and parse the arguments
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-i", "--image", required=True, help="path to input image")
-    args = vars(ap.parse_args())
+    for i in range(1):
+        ap = argparse.ArgumentParser()
+        ap.add_argument("-i", "--image", required=True, help="path to input image")
+        args = vars(ap.parse_args())
+        pbar.update(10)
+        
+        # reading the image in grayscale
+        img = cv2.imread((args["image"]), 0)
+        height = img.shape[0]
+        width = img.shape[1]
+        pbar.update(10) 
+    
+        #Image is blurred
+        blurred_img = apply_convolution(img, kernel_blur, height, width)
+        height = height - 1
+        width = width - 1
 
-    # reading the image in grayscale
-    img = cv2.imread((args["image"]), 0)
-    height = img.shape[0]
-    width = img.shape[1]
-   
-   #Image is blurred
-    blurred_img = apply_convolution(img, kernel_blur, height, width)
-    height = height - 1
-    width = width - 1
+        convoluted_Y = apply_convolution(blurred_img, kernel_conv_Y, height, width)
+        pbar.update(20)
 
-    convoluted_Y = apply_convolution(blurred_img, kernel_conv_Y, height, width)
+        convoluted_X = apply_convolution(blurred_img, kernel_conv_X, height, width )
+        pbar.update(20)
+        
+        #The sobel effect is applied
+        sobel_filtered_image = sobel_filter(convoluted_X, convoluted_Y)
+        pbar.update(40)
 
-    convoluted_X = apply_convolution(blurred_img, kernel_conv_X, height, width )
-
-    #The sobel effect is applied
-    sobel_filtered_image = sobel_filter(convoluted_X, convoluted_Y)
-
-    cv2.imwrite('Sobel_filtered_image.JPG', sobel_filtered_image)
-    cv2.imshow("Sobel filter", sobel_filtered_image)
-    cv2.waitKey(0)
+        cv2.imwrite('Sobel_filtered_image.JPG', sobel_filtered_image)
+        cv2.imshow("Sobel filter", sobel_filtered_image)
+        cv2.waitKey(0)
+    pbar.close()
 
