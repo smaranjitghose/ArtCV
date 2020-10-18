@@ -2,8 +2,9 @@ from scipy import stats # apply statistical knowledge from scitific python lib
 import numpy as np # matrix manipulation
 import cv2 # image processing lib
 import argparse # input and output file.
-import time # time based library
+from time import sleep # time based library
 from collections import defaultdict # DS
+from tqdm import tqdm as tqdm # for progess bar 
 
 # K-means algorithm to cluster the histogram of image
 # Value of K is auto-selected
@@ -32,12 +33,13 @@ def animefy(input_image,old=0):
 
     Collect = [] 
     #for collecting all H,S,V histograms after apply KHist fuction on all.
-    for h in hists:
+    for h in tqdm(hists,desc="Progress 1 of 2"):
+        sleep(0.2)
         Collect.append(KHist(h))
     """print("centroids: {0}".format(Collect))"""
 
     output = output.reshape((-1, channel))
-    for i in range(channel):
+    for i in tqdm(range(channel),desc="Progress 2 of 2"):
         channel1 = output[:, i]
         index = np.argmin(np.abs(channel1[:, np.newaxis] - Collect[i]), axis=1)
         output[:, i] = Collect[i][index]
@@ -67,7 +69,7 @@ def animefy(input_image,old=0):
 def update_C(C, histogram):
     #update centroids until they don't change
 
-    while True:
+    while (True):
         groups = defaultdict(list)
         # Assign pixel values
         for i in range(len(histogram)):
@@ -138,7 +140,7 @@ if __name__ == '__main__':
 
     #reading the image
     image = cv2.imread((args["image"]))
-#   image = cv2.imread("assets/kolkata.jpg") # input the image in jupyter notebook
+
     start_time = time.time()
     print("Wait, Work is in Progess.")
     output,output2,output3,output4 = animefy(image,1)
