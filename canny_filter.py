@@ -4,6 +4,8 @@ import cv2
 from math import sqrt, atan
 from math import atan, degrees
 import argparse
+from tqdm import tqdm
+
 
 #Constants
 kernel_blur = np.array([0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11]).reshape(3,3)
