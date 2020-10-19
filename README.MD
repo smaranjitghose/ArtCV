@@ -29,6 +29,12 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 |          Mosaic Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/mosaic.jpg">        |
 |          TSP Art             |<img src ="assets/kolkata.jpg">|<img src = "assets/tsp_art.jpg">       |
 |          Glitch Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/glitched_kolkata.jpg">       |
+|        Cartoon Effect        |<img src ="assets/kolkata.jpg">|<img src = "assets/cartoon1.jpg">       |
+|     Comic Cartoon Effect     |<img src ="assets/kolkata.jpg">|<img src = "assets/comic_cartoon_effect.jpg">       |
+|     Anime Vintage Effect     |<img src ="assets/kolkata.jpg">|<img src = "assets/anime_vintage_effect.jpg">       |
+|         Anime Effect         |<img src ="assets/kolkata.jpg">|<img src = "assets/anime_effect.jpg">       |
+|Emboss Effect(Black and White)|<img src ="assets/kolkata.jpg">|<img src = "assets/emboss_effect_grayscale.jpg">       |
+|    Emboss Effect(Colored)    |<img src ="assets/kolkata.jpg">|<img src = "assets/emboss_effect_coloured.jpg">       |
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
