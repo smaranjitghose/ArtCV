@@ -5,7 +5,7 @@ from math import sqrt, atan
 from math import atan, degrees
 import argparse
 from tqdm import tqdm
-
+pbar = tqdm(total=100)  
 
 #Constants
 kernel_blur = np.array([0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11,0.11]).reshape(3,3)
@@ -173,35 +173,43 @@ def double_threshold(non_li):
 
 if __name__ == "__main__":
     # construct the argument parse and parse the arguments
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-i", "--image", required=True, help="path to input image")
-    args = vars(ap.parse_args())
+    for i in range(1):
+        ap = argparse.ArgumentParser()
+        ap.add_argument("-i", "--image", required=True, help="path to input image")
+        args = vars(ap.parse_args())
 
-    # reading the image in grayscale
-    img = cv2.imread((args["image"]), 0)
-    height = img.shape[0]
-    width = img.shape[1]
-   
-   #Image is blurred
-    blurred_img = apply_convolution(img, kernel_blur, height, width)
-    height = height - 1
-    width = width - 1
+        # reading the image in grayscale
+        img = cv2.imread((args["image"]), 0)
+        height = img.shape[0]
+        width = img.shape[1]
+        pbar.update(10)
 
-    convoluted_Y = apply_convolution(blurred_img, kernel_conv_Y, height, width)
+        #Image is blurred
+        blurred_img = apply_convolution(img, kernel_blur, height, width)
+        height = height - 1
+        width = width - 1
 
-    convoluted_X = apply_convolution(blurred_img, kernel_conv_X, height, width )
+        convoluted_Y = apply_convolution(blurred_img, kernel_conv_Y, height, width)
+        pbar.update(15)
+        
+        convoluted_X = apply_convolution(blurred_img, kernel_conv_X, height, width )
+        pbar.update(15)
 
-    #The sobel effect is applied
-    sobel = sobel_filter(convoluted_X, convoluted_Y)
+        #The sobel effect is applied
+        sobel = sobel_filter(convoluted_X, convoluted_Y)
+        pbar.update(15)
 
-    convoluted_X, convoluted_Y, sobel = change_dimensions(convoluted_X, convoluted_Y, sobel)
+        convoluted_X, convoluted_Y, sobel = change_dimensions(convoluted_X, convoluted_Y, sobel)
 
-    #Non-maximal suppression is carried out here
-    non_linear_filter = non_linear_suppression(convoluted_X, convoluted_Y, sobel)
+        #Non-maximal suppression is carried out here
+        non_linear_filter = non_linear_suppression(convoluted_X, convoluted_Y, sobel)
+        pbar.update(15)
 
-    #Thresholding is applied to retain only certain lines
-    canny_filtered_image = double_threshold(non_linear_filter)
-    cv2.imwrite('Canny_filtered_image.JPG', canny_filtered_image)
-    cv2.imshow("Canny filter", canny_filtered_image)
-    cv2.waitKey(0)
+        #Thresholding is applied to retain only certain lines
+        canny_filtered_image = double_threshold(non_linear_filter)
+        pbar.update(30)
 
+        cv2.imwrite('Canny_filtered_image.JPG', canny_filtered_image)
+        cv2.imshow("Canny filter", canny_filtered_image)
+        cv2.waitKey(0)
+    pbar.close()
