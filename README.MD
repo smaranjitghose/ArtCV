@@ -1,4 +1,4 @@
-<h1 align = "center"> ART CV🎨</h1>
+<1 align = "center"> ART CV🎨</h1>
 Do you have a hidden creative artist 🤩 in yourself and never got the opportunity to let it free?
 <p align = "center"><img src = "https://media.giphy.com/media/3o7qDHGyWcfBPRy5lS/giphy.gif" width = 40%></p>
 
@@ -28,13 +28,14 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 |          Stippling           |<img src ="assets/kolkata.jpg">|<img src = "assets/Stippled.png">      |
 |          Mosaic Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/mosaic.jpg">        |
 |          TSP Art             |<img src ="assets/kolkata.jpg">|<img src = "assets/tsp_art.jpg">       |
-|          Glitch Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/glitched_kolkata.jpg">       |
-|        Cartoon Effect        |<img src ="assets/kolkata.jpg">|<img src = "assets/cartoon1.jpg">       |
-|     Comic Cartoon Effect     |<img src ="assets/kolkata.jpg">|<img src = "assets/comic_cartoon_effect.jpg">       |
-|     Anime Vintage Effect     |<img src ="assets/kolkata.jpg">|<img src = "assets/anime_vintage_effect.jpg">       |
-|         Anime Effect         |<img src ="assets/kolkata.jpg">|<img src = "assets/anime_effect.jpg">       |
-|Emboss Effect(Black and White)|<img src ="assets/kolkata.jpg">|<img src = "assets/emboss_effect_grayscale.jpg">       |
-|    Emboss Effect(Colored)    |<img src ="assets/kolkata.jpg">|<img src = "assets/emboss_effect_coloured.jpg">       |
+|        Cartoon Effect        |<img src ="assets/kolkata.jpg">|<img src = "assets/cartoon1.jpg">      |
+|     Comic Cartoon Effect     |<img src ="assets/kolkata.jpg">|<img src = "assets/comic_cartoon_effect.jpg">|
+|     Anime Vintage Effect     |<img src ="assets/kolkata.jpg">|<img src = "assets/anime_vintage_effect.jpg">|
+|         Anime Effect         |<img src ="assets/kolkata.jpg">|<img src = "assets/anime_effect.jpg">  |
+|Emboss Effect(Black and White)|<img src ="assets/kolkata.jpg">|<img src = "assets/emboss_effect_grayscale.jpg">|
+|    Emboss Effect(Colored)    |<img src ="assets/kolkata.jpg">|<img src = "assets/emboss_effect_coloured.jpg">|
+|          Glitch Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/glitched_kolkata.jpg">|
+|      Sobel Edge detection    |<img src ="assets/kolkata.jpg">|<img src = "assets/sobel_filter.JPG">|
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
