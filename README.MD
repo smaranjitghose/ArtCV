@@ -35,8 +35,8 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 |Emboss Effect(Black and White)|<img src ="assets/kolkata.jpg">|<img src = "assets/emboss_effect_grayscale.jpg">|
 |    Emboss Effect(Colored)    |<img src ="assets/kolkata.jpg">|<img src = "assets/emboss_effect_coloured.jpg">|
 |          Glitch Art          |<img src ="assets/kolkata.jpg">|<img src = "assets/glitched_kolkata.jpg">|
-|     Motion Blur(Vertical)    |<img src ="assets/kolkata.jpg">|<img src = "assets/verticalBlur.jpg">  |
-|   Motion Blur (Horizontal)   |<img src ="assets/kolkata.jpg">|<img src = "assets/horizontalBlur.jpg">|
+|     Motion Blur(Vertical)    |<img src ="assets/kolkata.jpg">|<img src = "assets/horizontalBlur.jpg">  |
+|   Motion Blur (Horizontal)   |<img src ="assets/kolkata.jpg">|<img src = "assets/verticalBlur.jpg">  |
 |    Motion Blur (Diagonal)    |<img src ="assets/kolkata.jpg">|<img src = "assets/diagonalBlur.jpg">  |
 |      Sobel Edge detection    |<img src ="assets/kolkata.jpg">|<img src = "assets/sobel_filter.JPG">  |
 
