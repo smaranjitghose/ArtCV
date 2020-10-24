@@ -38,6 +38,8 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters with som
 |     Motion Blur(Vertical)    |<img src ="assets/kolkata.jpg">|<img src = "assets/horizontalBlur.jpg">  |
 |   Motion Blur (Horizontal)   |<img src ="assets/kolkata.jpg">|<img src = "assets/verticalBlur.jpg">  |
 |    Motion Blur (Diagonal)    |<img src ="assets/kolkata.jpg">|<img src = "assets/diagonalBlur.jpg">  |
+|  Color Division Effect(K=3)  |<img src ="assets/kolkata.jpg">|<img src = "assets/colorDivisionK3.jpg">|
+|  Color Division Effect(K=6)  |<img src ="assets/kolkata.jpg">|<img src = "assets/colorDivisionK6.jpg">|
 |      Sobel Edge detection    |<img src ="assets/kolkata.jpg">|<img src = "assets/sobel_filter.JPG">  |
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
