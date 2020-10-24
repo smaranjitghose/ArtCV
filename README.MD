@@ -1,4 +1,4 @@
-<1 align = "center"> ART CV🎨</h1>
+<h1 align = "center"> ART CV🎨</h1>
 Do you have a hidden creative artist 🤩 in yourself and never got the opportunity to let it free?
 <p align = "center"><img src = "https://media.giphy.com/media/3o7qDHGyWcfBPRy5lS/giphy.gif" width = 40%></p>
 
