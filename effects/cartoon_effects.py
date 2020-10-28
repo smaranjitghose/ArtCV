@@ -1,7 +1,8 @@
 import cv2 #image processing lib
 import numpy as np #matrix manipulation
-from time import sleep #for slowing down the process to make progress visible 
-from tqdm import tqdm as tqdm # for progess bar 
+from PIL import Image
+from time import sleep #for slowing down the process to make progress visible
+from tqdm import tqdm as tqdm # for progess bar
 
 def cartoonize(img):
     sleep(0.1)
@@ -30,20 +31,14 @@ def cartoonize(img):
         pbar1.update(20)
         return cv2.medianBlur(cartoon,3),edgesOnly
 
-#construct the argument parse and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", required=True, help="path to input image")
-args = vars(ap.parse_args())
-# reading the image
-img = cv2.imread((args["image"]))
+def cartoon(user_file, choice):
+    # reading the image
+    img = Image.open(user_file)
+    img = np.array(img)
 
+    res_img1,res_img2 = cartoonize(img)
 
-print("Wait, Work is in Progess.")
-
-res_img1,res_img2 = cartoonize(img)
-
-cv2.imwrite("assets/cartoon1.jpg", res_img1)
-cv2.imwrite("assets/black_and_wihte_cartoon.jpg", res_img2)
-
-
-print("Your results are ready!")
+    if choice == 1:
+        return res_img1
+    else:
+        return res_img2

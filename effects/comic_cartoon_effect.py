@@ -1,7 +1,8 @@
 import cv2 #image processing lib
 import numpy as np #matrix manipulation
-from time import sleep #for slowing down the process to make progress visible 
-from tqdm import tqdm as tqdm # for progess bar 
+from PIL import Image
+from time import sleep #for slowing down the process to make progress visible
+from tqdm import tqdm as tqdm # for progess bar
 
 def comic(img):
     sleep(0.1)
@@ -39,17 +40,11 @@ def comic(img):
         sleep(0.1)
         pbar.update(20)
     return res
- 
 
+def cartoon(user_file):
+    # reading the image
+    img = Image.open(user_file)
+    img = np.array(img)
+    res_img3 = comic(img)
 
-#construct the argument parse and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", required=True, help="path to input image")
-args = vars(ap.parse_args())
-# reading the image
-img = cv2.imread((args["image"]))
-
-print("Wait, Work is in Progess.")
-res_img3 = comic(img)
-cv2.imwrite("assets/comic_cartoon_effect.jpg", res_img3)
-print("Your results are ready!")
+    return res_img3

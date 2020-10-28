@@ -2,8 +2,9 @@
 import argparse
 import cv2 #image processing lib
 import numpy as np #matrix manipulation
-from time import sleep #for slowing down the process to make progress visible 
-from tqdm import tqdm as tqdm # for progess bar 
+from PIL import Image
+from time import sleep #for slowing down the process to make progress visible
+from tqdm import tqdm as tqdm # for progess bar
 
 def emboss_effect(img):
     height, width = img.shape[:2]
@@ -30,17 +31,20 @@ def emboss_effect(img):
                         [1,1,0]])
     return cv2.filter2D(img, -1, kernel),output
 
+def emboss(user_file, choice):
+    # reading the image
+    img = Image.open(user_file)
+    img = np.array(img)
 
-#construct the argument parse and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", required=True, help="path to input image")
-args = vars(ap.parse_args())
-# reading the image
-img = cv2.imread((args["image"]))
+    # Convert to image with emboss effect
+    output1,output2 = emboss_effect(img)
 
-# Convert to image with emboss effect
-output1,output2 = emboss_effect(img)
-# Save the  image
-cv2.imwrite('assets/emboss_effect_grayscale.jpg',output2)
-cv2.imwrite('assets/emboss_effect_coloured.jpg',output1)
-print("Your results are ready!")
+    if choice == 1:
+        return output1
+    else:
+        return output2
+
+# Save the image
+# cv2.imwrite('assets/emboss_effect_grayscale.jpg',output2)
+# cv2.imwrite('assets/emboss_effect_coloured.jpg',output1)
+# print("Your results are ready!")
