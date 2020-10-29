@@ -145,13 +145,24 @@ def menu(uploaded_file):
         st.markdown("---")
         st.markdown("# Emboss")
         # Displaying the image
-        if st.checkbox("Grayscale"):
+        if st.checkbox("Color"):
             # Getting the final image
             final_image = emboss_effect.emboss(uploaded_file, 1)
 
-            st.image(final_image,caption = "Grayscale Emboss", use_column_width=True)
-        if st.checkbox("Color"):
+            st.image(final_image,caption = "Color Emboss", use_column_width=True)
+        if st.checkbox("Grayscale"):
             # Getting the final image
             final_image = emboss_effect.emboss(uploaded_file, 2)
 
-            st.image(final_image,caption = "Color Emboss", use_column_width=True)
+            st.image(final_image,caption = "Grayscale Emboss", use_column_width=True)
+
+    if st.sidebar.checkbox("Pointilism"):
+        # Getting the file
+        from effects import pointilism
+        # Getting the final image
+        final_image = pointilism.pointilism_effect(uploaded_file)
+
+        st.markdown("---")
+        st.markdown("# Pointilism")
+        # Displaying the image
+        st.image(final_image,caption = "Pointilism", use_column_width=True)
