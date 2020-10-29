@@ -1,7 +1,7 @@
 import os
 import argparse
 from PIL import Image
-import numpy as np 
+import numpy as np
 import math
 from tqdm import tqdm
 
@@ -12,7 +12,7 @@ def gen_divisors(n):
       yield i
 
 # generating the extedned padded image
-def pad_to_square(imgobj):    
+def pad_to_square(imgobj):
       """Pad to the nearest 100th"""
       square = Image.new('RGB', ((imgobj.width // 100 + 1) * 100,(imgobj.height // 100 + 1) * 100), (0, 0, 0))
       # pasting the original image object over the extended black padded background and returning it
@@ -35,7 +35,7 @@ def pixel_sort(imgobj, step_size=8):
       # shaping the sorted array into the padded image shape
       sorted_arr = sorted_arr.reshape(padded.height, padded.width, 3)
       # remove padding
-      sorted_arr = sorted_arr[:imgobj.height, :imgobj.width, :]  
+      sorted_arr = sorted_arr[:imgobj.height, :imgobj.width, :]
       # generating image from array
       return Image.fromarray(sorted_arr)
 
@@ -51,7 +51,7 @@ def glitch_image(fname):
       idx = np.random.choice(len(divisors))
       step_size = divisors[idx]
       try:
-        return pixel_sort(original, step_size=step_size)      
+        return pixel_sort(original, step_size=step_size)
       except:
         print('Dimension errors processing ' + fname + ' Please try again.')
         return None
@@ -65,6 +65,6 @@ def main():
         glitched.show()
         dirname, fname = os.path.split(args.file)
         glitched.save(dirname + '/glitched_' + fname)
-          
+
 if __name__ == '__main__':
   main()
