@@ -1,6 +1,8 @@
 opencv-python
-scipy
-argpase
+numpy
+argparse
 pillow
 scipy
 scikit-learn
+streamlit
+tqdm

@@ -1,10 +1,11 @@
 from scipy import stats # apply statistical knowledge from scitific python lib
 import numpy as np # matrix manipulation
 import cv2 # image processing lib
-import argparse # input and output file.
+# import argparse # input and output file.
+from PIL import Image
 from time import sleep # time based library
 from collections import defaultdict # DS
-from tqdm import tqdm as tqdm # for progess bar 
+from tqdm import tqdm as tqdm # for progess bar
 
 # K-means algorithm to cluster the histogram of image
 # Value of K is auto-selected
@@ -31,7 +32,7 @@ def animefy(input_image,old=0):
     hist, _ = np.histogram(output[:, :, 2], bins=np.arange(256+1))
     hists.append(hist)
 
-    Collect = [] 
+    Collect = []
     #for collecting all H,S,V histograms after apply KHist fuction on all.
     for h in tqdm(hists,desc="Progress 1 of 2"):
         sleep(0.2)
@@ -132,25 +133,20 @@ def KHist(hist):
             C = np.array(sorted(new_C))
     return C
 
-if __name__ == '__main__':
-    # construct the argument parse and parse the arguments
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-i", "--image", required=True, help="path to input image")
-    args = vars(ap.parse_args())
+def anime(user_file, choice):
+    # Reading the image
+    image = Image.open(user_file)
+    image = np.array(image)
 
-    #reading the image
-    image = cv2.imread((args["image"]))
-
-    start_time = time.time()
-    print("Wait, Work is in Progess.")
+    # Applying the effect
     output,output2,output3,output4 = animefy(image,1)
-    end_time = time.time()
-    t = end_time-start_time # processing time
-    print('time: {0}s'.format(t))
-    
 
-    cv2.imwrite("assets/anime_effect.jpg", output) # save the image
-    cv2.imwrite("assets/anime_Blue_effect.jpg", output2) 
-    cv2.imwrite("assets/anime_PredatorView_effect.jpg", output3) 
-    cv2.imwrite("assets/anime_vintage_effect.jpg", output4)
-    print("Your results are ready!")
+    # Returning the output
+    if choice == 1:
+        return output
+    elif choice == 2:
+        return output2
+    elif choice == 3:
+        return output3
+    else:
+        return output4

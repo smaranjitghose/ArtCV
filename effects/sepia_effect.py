@@ -1,7 +1,7 @@
 # Import the dependencies
-import argparse
 from PIL import Image, ImageDraw
 from tqdm import tqdm
+
 def get_pixel(image, i, j):
     width, height = image.size
     if i > width or j > height: # If dimensions are in bounds
@@ -40,15 +40,11 @@ def convert_sepia(image):
     # Return new image
     return new
 
+# Function to Communicate with app.py
+def sepia(user_file):
+    # reading the image
+    img = Image.open(user_file)
+    # Convert to sepia
+    sepia_img = convert_sepia(img)
 
-# construct the argument parse and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", required=True, help="path to input image")
-args = vars(ap.parse_args())
-
-# reading the image
-img = Image.open((args["image"]))
-# Convert to sepia
-sepia_img = convert_sepia(img)
-# Save the  image
-sepia_img.save('assets/sepia_effect.jpg', 'JPEG')
+    return sepia_img

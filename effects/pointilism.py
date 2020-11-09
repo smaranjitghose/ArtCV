@@ -89,27 +89,31 @@ def convert_pointilize(image):
     return new
 
 # construct the argument parse and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", required=True, help="path to input image")
-args = vars(ap.parse_args())
+# ap = argparse.ArgumentParser()
+# ap.add_argument("-i", "--image", required=True, help="path to input image")
+# args = vars(ap.parse_args())
 
-# reading the image
-try:
-    img = Image.open(args['image'])
-except FileNotFoundError:
-	print("Can not find the specified image file. Please, make sure the passed file exists.")
-	sys.exit()
-except ValueError:
-	print("Invalid parameters passed to PIL.Image.open() method.")
-	sys.exit()
-except UnidentifiedImageError:
-	print("Can not identify and open the image file specified. Please, make sure the file passed is a valid image.")
-	sys.exit()
-except IsADirectoryError:
-    print("Argument passed is a directory. Image file path expected.")
-    sys.exit()
+def pointilism_effect(user_file):
 
-# Apply Pointilism
-sepia_img = convert_pointilize(img)
+    # reading the image
+    try:
+        img = Image.open(user_file)
+    except FileNotFoundError:
+        print("Can not find the specified image file. Please, make sure the passed file exists.")
+        sys.exit()
+    except ValueError:
+        print("Invalid parameters passed to PIL.Image.open() method.")
+        sys.exit()
+    except UnidentifiedImageError:
+        print("Can not identify and open the image file specified. Please, make sure the file passed is a valid image.")
+        sys.exit()
+    except IsADirectoryError:
+        print("Argument passed is a directory. Image file path expected.")
+        sys.exit()
+
+    # Apply Pointilism
+    sepia_img = convert_pointilize(img)
+
+    return sepia_img
 # Save the  image
-sepia_img.save('assets/pointilism.jpg', 'JPEG')
+# sepia_img.save('assets/pointilism.jpg', 'JPEG')
