@@ -1,16 +1,16 @@
 <h1 align = "center"> ART CV🎨</h1>
-Do you have a hidden creative artist 🤩 in yourself and never got the opportunity to let it free?
+Do you believe that you have a hidden creative artist 🤩 within yourself but never got the opportunity to let it out?
 <p align = "center"><img src = "https://media.giphy.com/media/3o7qDHGyWcfBPRy5lS/giphy.gif" width = 40%></p>
 
 Do you love playing around with pictures👩‍🔬?
 <p align = "center"><img src = "https://media.giphy.com/media/3o6Zt9pQsQAJvMejAc/giphy.gif" width = 40%></p>
 
-Want to make an eye-catching art piece of yours for a website!
+Want to make an eye-catching pieces of art of for a website!
 Don’t have time to learn Adobe XD or Pro editor!
 But still, want to get things done?
 <p align = "center"><img src = "https://media.giphy.com/media/2yz9fpAgdBVVl96kNU/giphy.gif" width = 40%></p>
 
-Perhaps, Python🐍 can help you out to apply those mesmerizing filters with some basics of image processing!
+Perhaps, Python🐍 can help you out to apply those mesmerizing filters by applying some basic knowledge of image processing!
 <p align = "center"><img src = "https://media.giphy.com/media/1i44EI7mlbkA/giphy.gif" width = 30%></p>
 
 
@@ -50,7 +50,7 @@ Convinced..huh? 😉 and want this spell for yourself?
 
 Here you go:
 
-- Clone or download this repository ⏬
+- Clone or Download this repository ⏬
 - Open the Terminal 🐱‍💻
 - Move inside 👉 the repo 
 ```cd ArtCV``` 
