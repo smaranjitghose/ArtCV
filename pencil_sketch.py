@@ -2,7 +2,7 @@
 import cv2
 import argparse
 import sys
-
+from tqdm import tqdm as tqdm 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="path to input image")
@@ -16,8 +16,8 @@ if img is None:
     print("Can't read the image file."+
     "\nPlease make sure you are passing a valid path and it points to an image.")
     sys.exit()
-
-img_sketch_bw, img_sketch_c = cv2.pencilSketch(img, sigma_s=60, sigma_r=0.07, shade_factor=0.05)
+for j in tqdm(range(1,10),desc = 'Generating'):
+    img_sketch_bw, img_sketch_c = cv2.pencilSketch(img, sigma_s=60, sigma_r=0.07, shade_factor=0.05)
 
 # Fetch both the black and white pencil sketch and Colored Pencil Sketch
 
@@ -38,8 +38,8 @@ img_sketch_bw, img_sketch_c = cv2.pencilSketch(img, sigma_s=60, sigma_r=0.07, sh
 
  
 #create Window to display images
-cv2.imshow('Black and  White Sketch',img_sketch_bw)
-cv2.imshow('Color Sketch',img_sketch_c)
+    cv2.imshow('Black and  White Sketch',img_sketch_bw)
+    cv2.imshow('Color Sketch',img_sketch_c)
 
 # Input keypress
 k = cv2.waitKey(0)

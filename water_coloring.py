@@ -1,7 +1,7 @@
 # Import the dependencies
 import cv2
 import argparse
-
+from tqdm import tqdm as tqdm
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="path to input image")
@@ -9,8 +9,8 @@ args = vars(ap.parse_args())
 
 # reading the image
 img = cv2.imread((args["image"]))
-
-water_color_img  = cv2.stylization(img, sigma_s = 60,sigma_r = 0.6)
+for j in tqdm(range(1,10),desc = 'Generating'):
+    water_color_img  = cv2.stylization(img, sigma_s = 60,sigma_r = 0.6)
 # The smoothing filter replaces the value of a pixel by the weighted sum of its neighbors
 # The bigger the neighbourhood, the smoother the image becomes
 # The parameter signma_s(Sigma_Spatial) is used for controlling the size of the neighbourhood.
@@ -23,7 +23,7 @@ water_color_img  = cv2.stylization(img, sigma_s = 60,sigma_r = 0.6)
 # A larger value of sigma_r results in large regions of constant color.
 
 #create Window to display images
-cv2.imshow('Water Coloring', water_color_img)
+    cv2.imshow('Water Coloring', water_color_img)
 
 # Input keypress
 k = cv2.waitKey(0)

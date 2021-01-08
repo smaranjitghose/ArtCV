@@ -2,7 +2,7 @@
 import cv2
 import argparse
 import sys
-
+from tqdm import tqdm as tqdm
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="path to input image")
@@ -16,11 +16,11 @@ if img is None:
     print("Can't read the image file."+
     "\nPlease make sure you are passing a valid path and it points to an image.")
     sys.exit()
-
-oil_painting_img = cv2.xphoto.oilPainting(img,7,1)
+for j in tqdm(range(1,10),desc = 'Generating'):
+    oil_painting_img = cv2.xphoto.oilPainting(img,7,1)
 
 #create Window to display images
-cv2.imshow('Oil Painting', oil_painting_img)
+    cv2.imshow('Oil Painting', oil_painting_img)
 
 # Input keypress
 k = cv2.waitKey(0)
