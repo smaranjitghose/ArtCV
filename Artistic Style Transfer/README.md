@@ -23,7 +23,7 @@ If using it locally(**using Jupyter Notebook**) then download the data from the 
 
 ## Results :
 ---
-![](https://github.com/sagnik1511/Style-Transfer-with-Python/blob/main/Artistic%20Style%20Transfer/readme%20img.jpeg)
+![](https://github.com/sagnik1511/ArtCV/blob/master/Artistic%20Style%20Transfer/readme%20img.jpeg)
 
 ## Do 🌟 if you like it :)
 
