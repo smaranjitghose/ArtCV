@@ -8,7 +8,7 @@ Artistic Style Transfer With CycleGAN :
 
 * Now let us see how well the student has performed !!! Following are a few exhibitions of the students creation , which are not Van Gogh's paintinigs but recreation of random pictures but painted in Van Gogh's Style !!!
 
-<img src="images/predicted1.png" height=300 width=300><img src="images/predicted2.png" height=300 width=300><img src="images/predicted3.png" height=300 width=300><img src="images/predicted4.png" height=300 width=300><img src="images/predicted5.png" height=300 width=300>
+<img src="images/predicted1.png" height=400 width=600><img src="images/predicted2.png" height=400 width=600><img src="images/predicted3.png" height=400 width=600><img src="images/predicted4.png" height=400 width=600><img src="images/predicted5.png" height=400 width=600>
 
 
 (All above pictures are the outputs of the notebook.)
