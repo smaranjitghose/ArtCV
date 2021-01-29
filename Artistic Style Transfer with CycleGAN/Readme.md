@@ -1,6 +1,6 @@
 Artistic Style Transfer With CycleGAN :
 
-* In this [notebook](https://colab.research.google.com/drive/19t6m05nv7gnVdRZMkD-XZnaWUIsKcKZF) we will explore the Artistry of the GANs , that is we will create Van Gogh Style pictures , by learning from his paintings and implement his ***Artistic*** style on Normal images. 
+* In this [notebook](https://colab.research.google.com/drive/19t6m05nv7gnVdRZMkD-XZnaWUIsKcKZF?usp=sharing) we will explore the Artistry of the GANs , that is we will create Van Gogh Style pictures , by learning from his paintings and implement his ***Artistic*** style on Normal images. 
 
 * Now what is GAN ? GANs are like a pair of a teacher and a student , in this case , the teacher is Van Gogh and the student is someone who knows painting. So , what the student does is , he pics a random picture from the internet , and tries to paint it but in Van Gogh's style. When he finishes the painting , Van Gogh judges the painting , and tells him if he did it right or wrong. Based on his assesment , the student improves their work.
 
