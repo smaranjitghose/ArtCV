@@ -42,6 +42,7 @@ Perhaps, Python🐍 can help you out to apply those mesmerizing filters by apply
 |  Color Division Effect(K=6)  |<img src ="assets/kolkata.jpg">|<img src = "assets/colorDivisionK6.jpg">|
 |      Sobel Edge detection    |<img src ="assets/kolkata.jpg">|<img src = "assets/sobel_filter.JPG">  |
 |      Negative Roll Effect    |<img src ="assets/kolkata.jpg">|<img src = "assets/negative.jpg">  |
+|      Pink Colour Effect      |<img src ="assets/kolkata.jpg">|<img src = "assets/pink.jpg">  |
 
 ** Obtained from [Unsplash](https://unsplash.com/photos/Ab18eGc1hhE)
 
