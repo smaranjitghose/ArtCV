@@ -2,8 +2,7 @@
 import argparse
 import cv2 #image processing lib
 import numpy as np #matrix manipulation
-from time import sleep #for slowing down the process to make progress visible 
-from tqdm import tqdm as tqdm # for progess bar 
+from time import sleep #for slowing down the process to make progress visible
 
 #construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
